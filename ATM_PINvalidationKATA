@@ -1,0 +1,36 @@
+def validate_pin(pin):
+    return len(pin) in (4, 6) and pin.isdigit()
+def validate_pin1(pin):
+    #return true or false
+    def is_number(n):
+        try:
+            float(n)   # Type-casting the string to `float`.
+                       # If string is not a valid `float`, 
+                       # it'll raise `ValueError` exception
+        except ValueError:
+            return False
+        return True
+    def isinteger(a):
+        try:
+            int(a)
+            return True
+        except ValueError:
+            return False
+    if is_number(pin) == True:
+        if isinteger(pin) == True:
+            if int(pin) >= 0:
+                pin1 = pin.replace("+", "")
+                pin1 = pin1.replace(" ", "")
+                pin1 = pin1.replace("\n", "")
+                if (len(pin) == len(pin1)) and ((len(pin1) == 4) or (len(pin1) == 6)):
+                    return True
+                else:
+                    return False
+            else:
+                return False
+        else:
+            return False
+    else:
+        return False
+s = validate_pin1("123\n")
+print (s)
